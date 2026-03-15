@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.example.demo.LoginController"
+           style="-fx-background-color: #fafafa;">   <!-- very light neutral background -->
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <VBox alignment="CENTER" spacing="28" maxWidth="440" styleClass="card">
+
+        <!-- ──────────────────────────────────────────────── -->
+        <!--                   STYLES                        -->
+        <!-- ──────────────────────────────────────────────── -->
+        <style>
+            .card {
+            -fx-background-color: #ffffff;
+            -fx-background-radius: 20;
+            -fx-border-radius: 20;
+            -fx-border-color: #e5e7eb;
+            -fx-border-width: 1;
+            -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 20, 0, 0, 6);
+            -fx-padding: 48 40 52 40;
+            }
+            .title {
+            -fx-font-size: 30px;
+            -fx-font-weight: 700;
+            -fx-text-fill: #111827;
+            }
+            .subtitle {
+            -fx-font-size: 15px;
+            -fx-text-fill: #6b7280;
+            -fx-font-weight: 400;
+            }
+            .input-label {
+            -fx-font-size: 14px;
+            -fx-text-fill: #374151;
+            -fx-font-weight: 500;
+            }
+            .text-field, .password-field {
+            -fx-background-color: #f9fafb;
+            -fx-background-radius: 10;
+            -fx-border-color: #d1d5db;
+            -fx-border-radius: 10;
+            -fx-border-width: 1.2;
+            -fx-padding: 14;
+            -fx-font-size: 15px;
+            -fx-prompt-text-fill: #9ca3af;
+            }
+            .text-field:focused, .password-field:focused {
+            -fx-background-color: #ffffff;
+            -fx-border-color: #6366f1;
+            -fx-border-width: 2;
+            -fx-effect: dropshadow(gaussian, #6366f144, 10, 0, 0, 0);
+            }
+            .btn-primary {
+            -fx-background-color: #6366f1;
+            -fx-text-fill: white;
+            -fx-font-size: 15px;
+            -fx-font-weight: 600;
+            -fx-background-radius: 12;
+            -fx-padding: 14 32;
+            -fx-cursor: hand;
+            }
+            .btn-primary:hover {
+            -fx-background-color: #4f46e5;
+            }
+            .btn-primary:pressed {
+            -fx-background-color: #4338ca;
+            }
+            .btn-secondary {
+            -fx-background-color: transparent;
+            -fx-border-color: #d1d5db;
+            -fx-border-width: 2;
+            -fx-text-fill: #374151;
+            -fx-font-size: 15px;
+            -fx-font-weight: 500;
+            -fx-background-radius: 12;
+            -fx-padding: 14 32;
+            -fx-cursor: hand;
+            }
+            .btn-secondary:hover {
+            -fx-background-color: #f3f4f6;
+            -fx-border-color: #9ca3af;
+            }
+            .error {
+            -fx-text-fill: #dc2626;
+            -fx-font-size: 13.5px;
+            -fx-font-weight: 500;
+            -fx-padding: 4 0 0 0;
+            }
+            .footer {
+            -fx-font-size: 12.5px;
+            -fx-text-fill: #6b7280;
+            }
+        </style>
+
+        <Label text="Welcome Back" styleClass="title" alignment="CENTER"/>
+
+        <Label text="Sign in to continue to your account" styleClass="subtitle" alignment="CENTER"/>
+
+        <VBox spacing="20">
+
+            <VBox spacing="8">
+                <Label text="Username" styleClass="input-label"/>
+                <TextField fx:id="txtUsername"
+                           promptText="Enter your username"
+                           styleClass="text-field"/>
+            </VBox>
+
+            <VBox spacing="8">
+                <Label text="Password" styleClass="input-label"/>
+                <PasswordField fx:id="txtPassword"
+                               promptText="••••••••••••"
+                               styleClass="password-field"/>
+            </VBox>
+
+            <Label fx:id="lblMessage"
+                   styleClass="error"
+                   text=""
+                   wrapText="true"
+                   alignment="CENTER"/>
+        </VBox>
+
+        <HBox alignment="CENTER" spacing="20">
+            <Button text="Login"
+                    onAction="#login"
+                    defaultButton="true"
+                    styleClass="btn-primary"
+                    minWidth="160"/>
+
+            <Button text="Clear"
+                    onAction="#clear"
+                    styleClass="btn-secondary"
+                    minWidth="160"/>
+        </HBox>
+
+        <Label text="© 2026 Your App  •  Forgot password?"
+               styleClass="footer"
+               alignment="CENTER"/>
+
+    </VBox>
+</StackPane>
